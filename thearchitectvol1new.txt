@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Architect Vol. 1: Biology</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body { background-color: #f8fafc; font-family: 'Inter', sans-serif; padding: 20px 0; color: #1e293b; margin: 0; }
+        .page-container { display: flex; flex-direction: column; gap: 20px; align-items: center; width: 100%; padding: 0 10px; box-sizing: border-box; }
+        .page { width: 100%; max-width: 100%; min-height: auto; padding-bottom: 60px; background-color: white; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); position: relative; overflow: hidden; flex-shrink: 0; display: flex; flex-direction: column; }
+        @media (min-width: 768px) { body { padding: 40px 0; } .page-container { gap: 40px; padding: 0; } .page { width: 210mm; min-height: 297mm; max-width: none; padding-bottom: 0; } }
+        h1, h2, h3, h4, h5, .font-oswald { font-family: 'Oswald', sans-serif; text-transform: uppercase; }
+        .content-padding { padding: 1.5rem; }
+        @media (min-width: 768px) { .content-padding { padding: 3rem; } }
+        .section-break { margin-top: 2rem; margin-bottom: 2rem; border-bottom: 1px solid #e2e8f0; }
+        .cyan-box { background-color: #ecfeff; border-left: 4px solid #06b6d4; padding: 1rem; margin-top: 1rem; margin-bottom: 1rem; }
+        .slate-box { background-color: #f1f5f9; border-left: 4px solid #334155; padding: 1rem; margin-top: 1rem; margin-bottom: 1rem; }
+        .page-number { position: absolute; bottom: 15px; right: 15px; font-family: 'Oswald', sans-serif; font-size: 12px; color: #94a3b8; }
+        .footer-logo { position: absolute; bottom: 15px; left: 15px; font-family: 'Oswald', sans-serif; font-size: 10px; color: #cbd5e1; letter-spacing: 2px; }
+        p { margin-bottom: 1rem; line-height: 1.6; font-size: 0.95rem; text-align: justify; }
+        ul, ol { margin-bottom: 1rem; padding-left: 1.25rem; }
+        li { margin-bottom: 0.5rem; font-size: 0.95rem; line-height: 1.6; }
+        strong { color: #0f172a; font-weight: 700; }
+        .chapter-title { font-size: 2rem; font-weight: 700; line-height: 1.1; margin-bottom: 1.5rem; color: #0f172a; }
+        @media (min-width: 768px) { .chapter-title { font-size: 2.5rem; } }
+        .sub-title { font-size: 1.25rem; font-weight: 600; color: #06b6d4; margin-bottom: 1rem; font-family: 'Oswald', sans-serif; }
+        .technical-img { width: 100%; height: auto; border: 1px solid #e2e8f0; display: block; margin-top: 1rem; margin-bottom: 0.5rem; background-color: #f8fafc; }
+        .img-caption { font-size: 0.75rem; color: #64748b; text-align: center; font-style: italic; margin-bottom: 1.5rem; }
+        table { width: 100%; border-collapse: collapse; margin-bottom: 1rem; font-size: 0.85rem; }
+        th { background-color: #0f172a; color: white; padding: 0.75rem; text-align: left; }
+        td { border-bottom: 1px solid #e2e8f0; padding: 0.75rem; vertical-align: top; }
+        tr:last-child td { border-bottom: none; }
+    </style>
+</head>
+<body>
+
+    <div class="page-container">
+
+        <!-- ================= PAGE 1: COVER ================= -->
+        <div class="page bg-slate-900 text-white relative flex flex-col justify-between p-6 md:p-10 min-h-[500px] md:min-h-[297mm]">
+            <div class="absolute inset-0 bg-grid opacity-10"></div>
+            <div class="z-10 flex justify-between items-start border-b border-slate-700 pb-4">
+                <div class="text-cyan-400 text-xs tracking-[0.2em] md:tracking-[0.4em] font-bold">PRIMETHEORY.LAB</div>
+                <div class="text-slate-500 text-[10px] text-right">PREMIUM EDITION<br>VOL. 01 - 2025</div>
+            </div>
+            
+            <!-- VISUAL: COVER ILLUSTRATION -->
+            <div class="z-10 flex-grow flex items-center justify-center my-8 md:my-0">
+                <img 
+                    src="assets/v1-cover.jpg" 
+                    onerror="this.onerror=null; this.src='https://placehold.co/600x600/0f172a/06b6d4?text=FILE+NEEDED:+assets/v1-cover.jpg&font=oswald';"
+                    alt="Cover Art" 
+                    class="rounded-full border-4 border-cyan-500/30 shadow-[0_0_50px_rgba(6,182,212,0.3)] max-w-[80%] md:max-w-[80%] object-cover aspect-square"
+                >
+            </div>
+
+            <div class="z-10 mb-10">
+                <h1 class="text-5xl md:text-[7rem] font-bold leading-none text-white tracking-tighter">THE<br><span class="text-cyan-500">ARCHITECT</span></h1>
+                <div class="flex items-center gap-4 mt-6">
+                    <div class="h-1 w-10 md:w-20 bg-white"></div>
+                    <h2 class="text-lg md:text-2xl text-slate-300 font-light tracking-widest">VOLUME 1: BIOLOGY</h2>
+                </div>
+                <p class="text-slate-400 mt-4 text-sm max-w-sm">Face & Hair Optimization: Reclaiming Your Biology.</p>
+            </div>
+        </div>
+
+        <!-- ================= PAGE 2: TOC & LEGAL ================= -->
+        <div class="page bg-white content-padding">
+            <div class="mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-8 font-oswald">DAFTAR ISI</h2>
+                <ul class="space-y-4 font-oswald text-slate-700 text-sm md:text-base">
+                    <li class="flex justify-between border-b border-slate-200 pb-2"><span>1. PENDAHULUAN: The Biological Imperative</span> <span>03</span></li>
+                    <li class="flex justify-between border-b border-slate-200 pb-2"><span>2. CHAPTER 1: FACIAL ARCHITECTURE</span> <span>05</span></li>
+                    <li class="flex justify-between border-b border-slate-200 pb-2"><span>3. CHAPTER 2: SKINCARE ENGINEERING</span> <span>09</span></li>
+                    <li class="flex justify-between border-b border-slate-200 pb-2"><span>4. CHAPTER 3: HAIR GEOMETRY</span> <span>13</span></li>
+                    <li class="flex justify-between border-b border-slate-200 pb-2"><span>5. BONUS: THE DETAILS</span> <span>16</span></li>
+                    <li class="flex justify-between border-b border-slate-200 pb-2"><span>6. ACTION PLAN</span> <span>17</span></li>
+                </ul>
+            </div>
+            <div class="mt-auto text-xs text-slate-500">
+                <p class="font-bold mb-2">DISCLAIMER</p>
+                <p>Buku ini disusun berdasarkan riset dermatologi dan teori estetika. Namun, penulis bukan dokter medis. Semua protokol kesehatan (terutama yang melibatkan penggunaan bahan aktif pada kulit) harus dilakukan dengan bijak dan menyesuaikan kondisi tubuh masing-masing. Penulis tidak bertanggung jawab atas iritasi atau efek samping. Konsultasikan dengan profesional jika diperlukan.</p>
+                <p class="mt-4">&copy; 2025 PrimeTheory.Lab. All rights reserved.</p>
+            </div>
+            <div class="page-number">02</div>
+        </div>
+
+        <!-- ================= PAGE 3: PENDAHULUAN ================= -->
+        <div class="page bg-white content-padding bg-grid">
+            <h1 class="chapter-title">PENDAHULUAN:<br>THE BIOLOGICAL IMPERATIVE</h1>
+            
+            <h3 class="sub-title">The Halo Effect: Realita Pahit di Lapangan</h3>
+            <p>Kita bicara data aja ya, gak usah pakai perasaan. Psikologi evolusioner punya istilah <strong>"The Halo Effect"</strong>. Ini bias otak manusia yang secara otomatis mikir kalau orang yang wajahnya simetris, rahangnya tegas, dan kulitnya sehat, pasti orangnya baik, pinter, dan bisa dipercaya.</p>
+            
+            <!-- VISUAL: HALO EFFECT -->
+            <img 
+                src="assets/v1-halo-effect.jpg" 
+                onerror="this.onerror=null; this.src='https://placehold.co/800x300/e2e8f0/64748b?text=FILE+NEEDED:+assets/v1-halo-effect.jpg';"
+                alt="Halo Effect Diagram" 
+                class="technical-img my-4"
+            >
+            <p class="img-caption">Fig 0.1: Perbandingan persepsi bawah sadar terhadap struktur wajah.</p>
+
+            <p>Sebaliknya, kalau wajah lo asimetris, kulit lo kusam/jerawatan parah, dagu mundur (<em>recessed chin</em>), dan mata sayu... sadar gak sadar orang bakal nge-cap lo punya "Genetika Buruk" atau "Penyakitan".</p>
+            
+            <p>Dalam konteks <em>High Value Man</em>, wajah lo itu kartu nama lo. Sebelum lo sempat buka mulut buat pamer kepinteran lo, wajah lo udah ngomong duluan. Buku ini bukan soal makeup atau nutupin kekurangan. Ini soal <strong>Reclaiming Your Biology</strong>—mengambil balik potensi ganteng lo yang ketahan sama gaya hidup sampah.</p>
+            
+            <h3 class="sub-title mt-8">Musuh Kita: Gaya Hidup Modern</h3>
+            <p>Pernah mikir gak kenapa kakek buyut kita rahangnya tegas dan giginya rapi tanpa perlu behel?</p>
+            <ol class="list-decimal space-y-2">
+                <li><strong>Makanan Lembek:</strong> Mereka makan daging alot, ubi keras. Itu ngelatih otot rahang dari kecil. Kita? Makan bubur, roti empuk, <em>fast food</em>. Rahang kita jadi males.</li>
+                <li><strong>Napas Lewat Mulut:</strong> Gara-gara polusi atau alergi, banyak cowok napas lewat mulut (<em>Mouth Breathing</em>), apalagi pas tidur. Ini bikin wajah lo tumbuh memanjang ke bawah (<em>Vertical Growth</em>) dan dagu lo jadi mundur.</li>
+                <li><strong>Nunduk Terus:</strong> 8 jam sehari lo nunduk liat HP (<em>Tech-Neck</em>). Ini bikin struktur leher lo rusak dan garis rahang lo ilang ketutup lipatan leher.</li>
+            </ol>
+            <div class="page-number">03</div>
+            <div class="footer-logo">THE ARCHITECT</div>
+        </div>
+
+        <!-- ================= PAGE 4: CHAPTER 1 COVER ================= -->
+        <div class="page bg-slate-900 text-white flex flex-col justify-center items-center relative overflow-hidden min-h-[400px] md:min-h-[297mm]">
+            <div class="absolute inset-0 bg-grid opacity-10"></div>
+            <!-- VISUAL: SKULL ANATOMY -->
+            <img 
+                src="assets/v1-skull.jpg" 
+                onerror="this.onerror=null; this.src='https://placehold.co/800x400/1e293b/06b6d4?text=FILE+NEEDED:+assets/v1-skull.jpg';"
+                alt="Facial Bone Structure Blueprint" 
+                class="opacity-80 mb-8 max-w-[80%] border border-cyan-800"
+            >
+            
+            <div class="border-2 border-cyan-500 p-6 md:p-8 text-center z-10 bg-slate-900/90 backdrop-blur w-[90%] md:w-[80%]">
+                <h3 class="text-cyan-400 tracking-[0.3em] md:tracking-[0.5em] mb-4 font-oswald text-sm md:text-base">MODULE ONE</h3>
+                <h1 class="text-4xl md:text-6xl font-bold font-oswald mb-4">FACIAL<br>ARCHITECTURE</h1>
+                <p class="text-slate-300 italic text-sm md:text-base">(Benerin Struktur Tulang & Otot Wajah)</p>
+            </div>
+            <div class="page-number">04</div>
+        </div>
+
+        <!-- ================= PAGE 5: CHAPTER 1 CONTENT ================= -->
+        <div class="page bg-white content-padding">
+            <p class="mb-6">Wajah manusia itu ngikutin hukum <strong>Wolff's Law</strong>: <em>Tulang bakal berubah bentuk ngikutin tekanan yang dikasih ke dia.</em></p>
+            
+            <p>Jadi, kalau lo kasih tekanan yang bener ke tulang rahang atas (Maxilla), tulang itu bakal berubah (<em>Remodeling</em>). Yes, bahkan di usia lo sekarang, walau prosesnya lebih pelan dibanding pas remaja.</p>
+
+            <h3 class="sub-title mt-8">A. MEWING 2.0: The Deep Dive</h3>
+            <p>Banyak orang gagal Mewing karena cuma nempelin ujung lidah doang di belakang gigi. Gak guna, Bro. Lo harus ngangkat <strong>Maxilla</strong> (langit-langit mulut) pakai seluruh permukaan lidah lo.</p>
+
+            <!-- VISUAL: MEWING DIAGRAM (MERGED) -->
+            <img 
+                src="assets/v1-mewing.jpg" 
+                onerror="this.onerror=null; this.src='https://placehold.co/800x300/ecfeff/06b6d4?text=FILE+NEEDED:+assets/v1-mewing.jpg';"
+                alt="Correct vs Incorrect Tongue Posture" 
+                class="technical-img my-6"
+            >
+
+            <div class="cyan-box">
+                <p class="mb-0 text-sm"><strong>TEKNIK "SUCTION HOLD" (VAKUM):</strong> Mewing itu bukan "ndorong" lidah secara manual (pegel nanti), tapi "ngisep" lidah ke atas (Vakum) biar nempel sendiri kayak stiker.</p>
+            </div>
+
+            <ol class="list-decimal space-y-4 mt-4">
+                <li><strong>Langkah 1 (The Cheesy Smile):</strong> Senyum lebar banget sampai gigi lo kelihatan semua ("Cheese"). Ini buat narik otot pipi biar gak ngeganjel.</li>
+                <li><strong>Langkah 2 (The Swallow):</strong> Telan ludah lo sambil tetep senyum. Perhatiin pas lo nelan, lidah lo otomatis naik nempel ke langit-langit kan?</li>
+                <li><strong>Langkah 3 (The Vacuum - KUNCI):</strong> Pas lidah lagi di atas itu, TAHAN. Rasain lidah bagian paling belakang (<strong>Pangkal Lidah</strong>) naik nutup jalan napas ke mulut. <em>Tanda Bener:</em> Kulit di bawah dagu lo (area <em>double chin</em>) bakal kerasa ketarik naik dan kenceng seketika. Lo gak bakal bisa napas lewat mulut.</li>
+            </ol>
+            <div class="page-number">05</div>
+            <div class="footer-logo">THE ARCHITECT</div>
+        </div>
+
+        <!-- ================= PAGE 6: MEWING & CHEWING ================= -->
+        <div class="page bg-white content-padding">
+            <ol class="list-decimal space-y-4" start="4">
+                <li><strong>Langkah 4 (Lip Seal):</strong> Tutup bibir lo rapet tapi santai. Gigi atas bawah nempel tipis-tipis aja (<em>Butterfly touch</em>). <strong>JANGAN</strong> digertakin (<em>Clenching</em>) ntar sendi lo rusak.</li>
+                <li><strong>Bernapas:</strong> Napas <strong>CUMA</strong> lewat hidung.</li>
+            </ol>
+
+            <div class="slate-box">
+                <p class="font-bold text-slate-900 mb-2">TROUBLESHOOTING:</p>
+                <ul class="list-disc pl-5 text-sm">
+                    <li><strong>"Lidah gue pegel, Bang":</strong> Bagus. Berarti otot lidah lo lemah karena jarang dipake. Lanjutin, seminggu juga ilang pegelnya.</li>
+                    <li><strong>"Gak bisa napas nih":</strong> Mungkin pangkal lidah lo nekan kejauhan ke belakang sampai nutup jalan napas hidung. Majuin dikit, tapi pastiin pangkalnya tetep nempel di atas.</li>
+                    <li><strong>"Kapan dilakuin?":</strong> Targetnya 24 jam/7 hari. Jadiin ini posisi default lidah lo, termasuk pas tidur.</li>
+                </ul>
+            </div>
+            
+            <div class="section-break"></div>
+
+            <h3 class="sub-title">B. CHEWING PROTOCOL (Bikin Rahang Kotak)</h3>
+            <p>Otot <em>Masseter</em> di samping rahang itu yang bikin muka cowok kelihatan lebar dan maskulin (<em>Dimorfisme Seksual</em>). Muka lebar = Testosteron tinggi.</p>
+
+            <!-- VISUAL: MASSETER MUSCLE -->
+            <img 
+                src="assets/v1-masseter.jpg" 
+                onerror="this.onerror=null; this.src='https://placehold.co/800x300/f8fafc/334155?text=FILE+NEEDED:+assets/v1-masseter.jpg';"
+                alt="Masseter Muscle Anatomy" 
+                class="technical-img my-4"
+            >
+            <p class="img-caption">Fig 1.2: Lokasi Otot Masseter.</p>
+
+            <h4 class="font-bold text-slate-800 mb-2">ALAT TEMPUR:</h4>
+            <ul class="list-disc space-y-2 mb-6">
+                <li><strong>Level 1 (Pemula):</strong> Permen karet biasa (sugar-free). Triknya: Minum air es pas ngunyah biar permennya jadi keras.</li>
+                <li><strong>Level 2 (Intermediate):</strong> <em>Mastic Gum</em> (Getah damar alami). Ini keras banget, 10x lipat permen karet biasa.</li>
+                <li><strong>Level 3 (Advanced):</strong> <em>Jawliner</em> (Karet silikon). <em>Warning: Ati-ati pake ini, kalau salah teknik sendi rahang (TMJ) lo bisa kena.</em></li>
+            </ul>
+
+            <h4 class="font-bold text-slate-800 mb-2">CARA LATIHAN:</h4>
+            <ul class="list-disc space-y-2">
+                <li><strong>Teknik:</strong> Kunyah dengan gerakan <em>Full Range</em> (buka mulut lebar, tutup sampe gigi ketemu). Tempo santai aja.</li>
+                <li><strong>Durasi:</strong> 20-30 menit sehari. Jangan lebay, ntar cedera.</li>
+                <li><strong>WAJIB SEIMBANG:</strong> Kunyah 50% di kiri, 50% di kanan. Kalau lo cuma ngunyah di satu sisi, muka lo bakal miring (Asimetris). Benerin muka miring itu susah, Bro.</li>
+            </ul>
+            <div class="page-number">06</div>
+            <div class="footer-logo">THE ARCHITECT</div>
+        </div>
+
+        <!-- ================= PAGE 7: NECK POSTURE ================= -->
+        <div class="page bg-white content-padding">
+            <h3 class="sub-title">C. NECK POSTURE (McKenzie Chin Tuck)</h3>
+            <p>Mewing percuma kalau leher lo bungkuk (<em>Nerd Neck</em>). Kepala yang maju ke depan bakal narik kulit wajah ke bawah (<em>Downswing</em>), bikin lo punya <em>Double Chin</em> palsu dan rahang lo ilang.</p>
+
+            <!-- VISUAL: POSTURE (MERGED) -->
+            <img 
+                src="assets/v1-posture.jpg" 
+                onerror="this.onerror=null; this.src='https://placehold.co/800x300/f1f5f9/334155?text=FILE+NEEDED:+assets/v1-posture.jpg';"
+                alt="Neck Posture Comparison" 
+                class="technical-img my-4"
+            >
+            <p class="img-caption">Fig 1.3: Koreksi Postur Leher.</p>
+
+            <h4 class="font-bold text-slate-800 mb-4">LATIHAN KOREKSI (CHIN TUCK):</h4>
+            <ol class="list-decimal space-y-3">
+                <li>Berdiri tegak, punggung nempel tembok.</li>
+                <li>Tarik dagu lo lurus ke belakang (kayak laci ditutup), sampe lo ngerasa kayak punya <em>double chin</em> berlipat-lipat.</li>
+                <li>Pastiin belakang kepala lo nyentuh tembok.</li>
+                <li>Tahan posisi aneh ini 10 detik. Ulangi 10 kali.</li>
+                <li><em>Efek:</em> Ini bakal ngelurusin tulang leher lo dan secara instan bikin Jawline lo nongol pas berdiri normal.</li>
+            </ol>
+            <div class="page-number">07</div>
+            <div class="footer-logo">THE ARCHITECT</div>
+        </div>
+
+        <!-- ================= PAGE 8: CHAPTER 2 COVER ================= -->
+        <div class="page bg-slate-900 text-white flex flex-col justify-center items-center relative overflow-hidden min-h-[400px] md:min-h-[297mm]">
+            <div class="absolute inset-0 bg-grid opacity-10"></div>
+            <!-- VISUAL: SKIN LAYERS -->
+            <img 
+                src="assets/v1-skin-layers.jpg" 
+                onerror="this.onerror=null; this.src='https://placehold.co/800x400/1e293b/06b6d4?text=FILE+NEEDED:+assets/v1-skin-layers.jpg';"
+                alt="Skin Structure Diagram" 
+                class="opacity-80 mb-8 max-w-[80%] border border-cyan-800"
+            >
+            <div class="border-2 border-cyan-500 p-8 md:p-12 text-center z-10 bg-slate-900/90 backdrop-blur w-[90%] md:w-[80%]">
+                <h3 class="text-cyan-400 tracking-[0.3em] md:tracking-[0.5em] mb-4 font-oswald text-sm md:text-base">MODULE TWO</h3>
+                <h1 class="text-4xl md:text-6xl font-bold font-oswald mb-4">SKINCARE<br>ENGINEERING</h1>
+                <p class="text-slate-300 italic text-sm md:text-base">(Protokol Wajah Cowok Tropis)</p>
+            </div>
+            <div class="page-number">08</div>
+        </div>
+
+        <!-- ================= PAGE 9: SKINCARE INTRO ================= -->
+        <div class="page bg-white content-padding">
+            <p>Lupain iklan yang janjiin "Putih Instan". Lo cowok, lo gak butuh kulit putih pucat kayak mayat. Lo butuh <strong>Skin Resilience</strong> (Kulit badak yang bersih, sehat, dan gak kusam).</p>
+
+            <h3 class="sub-title mt-6">Tahap 1: Kenali Musuh (Cek Jenis Kulit Lo)</h3>
+            
+            <!-- VISUAL: SKIN TYPES -->
+            <img 
+                src="assets/v1-skin-types.jpg" 
+                onerror="this.onerror=null; this.src='https://placehold.co/800x250/f8fafc/475569?text=FILE+NEEDED:+assets/v1-skin-types.jpg';"
+                alt="Oily vs Dry vs Combination Skin Zones" 
+                class="technical-img my-4"
+            >
+
+            <p>Lakuin "Tissue Test" dulu sebelum beli skincare:</p>
+            <ol class="list-decimal space-y-2 mb-8">
+                <li>Cuci muka pake air doang.</li>
+                <li>Tunggu 1 jam <strong>JANGAN</strong> pake apa-apa.</li>
+                <li>Tempel tisu di T-Zone (Dahi & Hidung) sama Pipi.</li>
+                <ul class="list-disc pl-5 mt-2">
+                    <li><strong>Oily (Berminyak):</strong> Tisu lo berminyak semua.</li>
+                    <li><strong>Dry (Kering):</strong> Tisu bersih, tapi muka lo kerasa ketarik/gatal.</li>
+                    <li><strong>Combination:</strong> T-Zone berminyak, Pipi kering.</li>
+                </ul>
+            </ol>
+
+            <h3 class="sub-title">Tahap 2: The Holy Trinity Routine (Hukum Wajib)</h3>
+            <p>Lakuin 3 hal ini tiap hari. Jangan gaya-gayaan beli serum macem-macem kalau yang dasar ini belum bener 30 hari.</p>
+            <div class="page-number">09</div>
+            <div class="footer-logo">THE ARCHITECT</div>
+        </div>
+
+        <!-- ================= PAGE 10: SKINCARE TRINITY ================= -->
+        <div class="page bg-white content-padding">
+            <!-- VISUAL: ROUTINE ICONS (SEPARATED) -->
+            <div class="flex flex-wrap md:flex-nowrap justify-between gap-4 mb-8">
+                <div class="text-center w-full md:w-1/3 p-4 border border-slate-200">
+                    <img src="assets/v1-icon-cleanse.jpg" onerror="this.onerror=null; this.src='https://placehold.co/100x100/e2e8f0/64748b?text=ICON:Soap';" class="mx-auto mb-2 rounded-full h-24 w-24 object-cover">
+                    <p class="font-bold text-sm">1. CLEANSE</p>
+                </div>
+                <div class="text-center w-full md:w-1/3 p-4 border border-slate-200">
+                    <img src="assets/v1-icon-moisturize.jpg" onerror="this.onerror=null; this.src='https://placehold.co/100x100/e2e8f0/64748b?text=ICON:Gel';" class="mx-auto mb-2 rounded-full h-24 w-24 object-cover">
+                    <p class="font-bold text-sm">2. MOISTURIZE</p>
+                </div>
+                <div class="text-center w-full md:w-1/3 p-4 border border-slate-200">
+                    <img src="assets/v1-icon-protect.jpg" onerror="this.onerror=null; this.src='https://placehold.co/100x100/e2e8f0/64748b?text=ICON:Sun';" class="mx-auto mb-2 rounded-full h-24 w-24 object-cover">
+                    <p class="font-bold text-sm">3. PROTECT</p>
+                </div>
+            </div>
+
+            <h4 class="font-bold text-slate-800 mb-2">1. CLEANSE (Cuci Muka)</h4>
+            <p>Banyak cowok demen sabun yang bikin muka "kesat" sampe bunyi <em>ckit ckit</em> kalau digosok.</p>
+            <ul class="list-disc space-y-2 mb-6">
+                <li><strong>FAKTA:</strong> Rasa kesat itu tandanya <em>Skin Barrier</em> (tameng kulit) lo ancur, Bro. Kulit lo bakal panik dan malah produksi minyak 2x lipat lebih banyak buat ngelindungin diri.</li>
+                <li><strong>SOLUSI:</strong> Cari <em>Gentle Cleanser</em> (biasanya ada tulisan "Low pH" atau "Hydrating").</li>
+                <li><strong>Indikator:</strong> Abis dibilas, muka lo harusnya licin dikit, lembab, dan enak digerakin. BUKAN kesat ketarik.</li>
+            </ul>
+
+            <h4 class="font-bold text-slate-800 mb-2">2. MOISTURIZE (Pelembab)</h4>
+            <ul class="list-disc space-y-2 mb-6">
+                <li><strong>MITOS:</strong> "Muka gue berminyak, ngapain pake pelembab?"</li>
+                <li><strong>FAKTA:</strong> Minyak itu bukan Air. Muka berminyak biasanya karena kulit lo dehidrasi (kurang air), makanya kilang minyaknya kerja lembur.</li>
+                <li><strong>SOLUSI:</strong>
+                    <ul class="list-circle pl-5 mt-1">
+                        <li><em>Muka Berminyak:</em> Pilih tekstur <strong>GEL</strong> atau <strong>Water-Based</strong>. Cari tulisan: <em>Oil-free</em>. Ini nyerapnya cepet, gak lengket.</li>
+                        <li><em>Muka Kering:</em> Pilih tekstur <strong>CREAM</strong> yang agak tebel.</li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="page-number">10</div>
+            <div class="footer-logo">THE ARCHITECT</div>
+        </div>
+
+        <!-- ================= PAGE 11: SKINCARE CONT ================= -->
+        <div class="page bg-white content-padding">
+            <h4 class="font-bold text-slate-800 mb-2">3. PROTECT (Sunscreen)</h4>
+            <ul class="list-disc space-y-2 mb-8">
+                <li><strong>FAKTA:</strong> 90% muka tua, keriput, dan flek hitam itu gara-gara Matahari. Sinar UV nembus kaca jendela loh.</li>
+                <li><strong>SOLUSI:</strong> Sunscreen minimal <strong>SPF 30</strong>.</li>
+                <li><strong>Takaran:</strong> Pake sebanyak <strong>2 jari penuh</strong> (telunjuk & tengah) buat muka sama leher. Jangan irit-irit. Pake tiap pagi abis mandi.</li>
+            </ul>
+
+            <div class="section-break"></div>
+
+            <h3 class="sub-title">Tahap 3: Advanced Active Ingredients (Senjata Rahasia)</h3>
+            <p>Pake ini CUMA kalau Trinity Routine udah aman dan kulit lo gak ngamuk.</p>
+
+            <div class="overflow-x-auto">
+                <table class="mt-4 min-w-full">
+                    <thead>
+                        <tr><th>MASALAH LO</th><th>BAHAN AKTIF</th><th>CARA PAKAI</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Kusam / Bekas Jerawat Item</td><td>Vitamin C / Niacinamide</td><td>Pake <strong>Pagi</strong> sebelum Sunscreen. Biar muka cerah.</td></tr>
+                        <tr><td>Jerawat / Pori Gede</td><td>Salicylic Acid (BHA)</td><td>Pake <strong>Malam</strong> (bisa Toner/Serum). Cukup <strong>2-3x seminggu</strong>. Dia masuk ke pori-pori buat nyedot minyak.</td></tr>
+                        <tr><td>Bopeng / Kasar</td><td>Retinol</td><td>Pake <strong>HANYA MALAM</strong>. Besok paginya WAJIB Sunscreen karena kulit jadi sensitif. Mulai dari dosis rendah (0.5%) dan jarang-jarang dulu.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="page-number">11</div>
+            <div class="footer-logo">THE ARCHITECT</div>
+        </div>
+
+        <!-- ================= PAGE 12: CHAPTER 3 COVER ================= -->
+        <div class="page bg-slate-900 text-white flex flex-col justify-center items-center relative overflow-hidden min-h-[400px] md:min-h-[297mm]">
+            <div class="absolute inset-0 bg-grid opacity-10"></div>
+            <!-- VISUAL: FACE SHAPES -->
+            <img 
+                src="assets/v1-face-shapes.jpg" 
+                onerror="this.onerror=null; this.src='https://placehold.co/800x400/1e293b/06b6d4?text=FILE+NEEDED:+assets/v1-face-shapes.jpg';"
+                alt="Face Shapes Geometry" 
+                class="opacity-80 mb-8 max-w-[80%] border border-cyan-800"
+            >
+            <div class="border-2 border-cyan-500 p-8 md:p-12 text-center z-10 bg-slate-900/90 backdrop-blur w-[90%] md:w-[80%]">
+                <h3 class="text-cyan-400 tracking-[0.3em] md:tracking-[0.5em] mb-4 font-oswald text-sm md:text-base">MODULE THREE</h3>
+                <h1 class="text-4xl md:text-6xl font-bold font-oswald mb-4">HAIR<br>GEOMETRY</h1>
+                <p class="text-slate-300 italic text-sm md:text-base">(Bingkai Muka Lo)</p>
+            </div>
+            <div class="page-number">12</div>
+        </div>
+
+        <!-- ================= PAGE 13: HAIR GEOMETRY ================= -->
+        <div class="page bg-white content-padding">
+            <p>Rambut itu makeup-nya cowok. Potongan rambut yang bener itu soal <strong>Geometri</strong>: Gimana caranya bikin ilusi muka lo jadi Oval (bentuk ideal) dengan mainin volume rambut.</p>
+
+            <h3 class="sub-title mt-6">Langkah 1: Ukur Muka Lo</h3>
+            
+            <!-- VISUAL: MEASUREMENT LINES -->
+            <div class="flex flex-col md:flex-row gap-4 my-6">
+                <img 
+                    src="assets/v1-face-measure.jpg" 
+                    onerror="this.onerror=null; this.src='https://placehold.co/300x400/f8fafc/334155?text=FILE+NEEDED:+assets/v1-face-measure.jpg';"
+                    alt="Face Measurement Lines" 
+                    class="technical-img w-full md:w-1/3 max-w-[200px] mx-auto"
+                >
+                <div class="w-full md:w-2/3 pl-0 md:pl-4">
+                    <p>Ambil meteran jahit atau tali. Ngaca.</p>
+                    <ol class="list-decimal space-y-2 mb-8">
+                        <li><strong>Dahi:</strong> Ukur lebar dahi dari puncak alis kiri ke kanan.</li>
+                        <li><strong>Tulang Pipi:</strong> Ukur bagian paling nonjol di bawah mata.</li>
+                        <li><strong>Rahang:</strong> Ukur dari ujung dagu ke bawah telinga, kali dua.</li>
+                        <li><strong>Panjang Muka:</strong> Ukur dari garis rambut atas sampe ujung dagu.</li>
+                    </ol>
+                </div>
+            </div>
+
+            <h3 class="sub-title">Langkah 2: Pilih Gaya (Contekan)</h3>
+            <div class="space-y-6 mt-4">
+                <div class="bg-slate-50 p-4 border-l-4 border-slate-800 flex flex-col md:flex-row gap-4">
+                    <img 
+                        src="assets/v1-shape-round.jpg" 
+                        onerror="this.onerror=null; this.src='https://placehold.co/100x100/e2e8f0/64748b?text=Shape:ROUND';"
+                        class="rounded w-16 h-16 md:w-24 md:h-24 object-cover"
+                    >
+                    <div>
+                        <h4 class="font-bold text-slate-900">A. WAJAH BULAT (Round)</h4>
+                        <p class="text-sm italic mb-2">Lebar Pipi sama kayak Panjang Muka. Dagu lo tumpul.</p>
+                        <ul class="list-disc pl-4 text-sm space-y-1">
+                            <li><strong>Strategi:</strong> Lo butuh sudut tajem dan tinggi biar muka kesan lonjong.</li>
+                            <li><strong>Potongan:</strong> High Fade (Samping tipisin abis) + Pompadour/Quiff (Atasnya jambul tinggi).</li>
+                            <li><strong>JANGAN:</strong> Buzz cut (muka lo jadi kayak bola) atau Poni depan (muka makin pendek).</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="bg-slate-50 p-4 border-l-4 border-slate-800 flex flex-col md:flex-row gap-4">
+                    <img 
+                        src="assets/v1-shape-square.jpg" 
+                        onerror="this.onerror=null; this.src='https://placehold.co/100x100/e2e8f0/64748b?text=Shape:SQUARE';"
+                        class="rounded w-16 h-16 md:w-24 md:h-24 object-cover"
+                    >
+                    <div>
+                        <h4 class="font-bold text-slate-900">B. WAJAH KOTAK (Square)</h4>
+                        <p class="text-sm italic mb-2">Rahang lebar, dahi lebar. Sudut tajem.</p>
+                        <ul class="list-disc pl-4 text-sm space-y-1">
+                            <li><strong>Strategi:</strong> Ini bentuk paling maskulin. Bisa lo tonjolin (gaya militer) atau lembutin dikit.</li>
+                            <li><strong>Potongan:</strong> Buzz Cut, Crew Cut, atau Classic Side Part.</li>
+                            <li><strong>JANGAN:</strong> Rambut samping terlalu ngembang (kepala lo jadi kotak banget).</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="page-number">13</div>
+            <div class="footer-logo">THE ARCHITECT</div>
+        </div>
+
+        <!-- ================= PAGE 14: HAIR CONT ================= -->
+        <div class="page bg-white content-padding">
+            <div class="space-y-6">
+                <div class="bg-slate-50 p-4 border-l-4 border-slate-800 flex flex-col md:flex-row gap-4">
+                    <img 
+                        src="assets/v1-shape-oblong.jpg" 
+                        onerror="this.onerror=null; this.src='https://placehold.co/100x100/e2e8f0/64748b?text=Shape:OBLONG';"
+                        class="rounded w-16 h-16 md:w-24 md:h-24 object-cover"
+                    >
+                    <div>
+                        <h4 class="font-bold text-slate-900">C. WAJAH LONJONG (Oblong)</h4>
+                        <p class="text-sm italic mb-2">Muka lo jelas lebih panjang daripada lebarnya.</p>
+                        <ul class="list-disc pl-4 text-sm space-y-1">
+                            <li><strong>Strategi:</strong> Kurangin panjang muka, tambah lebar di samping.</li>
+                            <li><strong>Potongan:</strong> French Crop atau Fringe (Poni diturunin nutup dahi). Sampingnya jangan terlalu tipis (Skin Fade), biarin ada rambut dikit biar muka kelihatan lebih lebar.</li>
+                            <li><strong>JANGAN:</strong> Jambul tinggi (muka lo jadi kayak kuda).</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="bg-slate-50 p-4 border-l-4 border-slate-800 flex flex-col md:flex-row gap-4">
+                    <img 
+                        src="assets/v1-shape-diamond.jpg" 
+                        onerror="this.onerror=null; this.src='https://placehold.co/100x100/e2e8f0/64748b?text=Shape:DIAMOND';"
+                        class="rounded w-16 h-16 md:w-24 md:h-24 object-cover"
+                    >
+                    <div>
+                        <h4 class="font-bold text-slate-900">D. WAJAH DIAMOND</h4>
+                        <p class="text-sm italic mb-2">Pipi lebar, tapi dahi sempit dan dagu lancip.</p>
+                        <ul class="list-disc pl-4 text-sm space-y-1">
+                            <li><strong>Strategi:</strong> Tambah volume di dahi buat imbangin pipi.</li>
+                            <li><strong>Potongan:</strong> Messy Fringe atau Textured Crop (Poni acak-acakan).</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-break"></div>
+
+            <h3 class="sub-title">Langkah 3: Hair Product Chemistry</h3>
+            <p>Jangan asal comot gel di minimarket.</p>
+            <ul class="list-disc space-y-2">
+                <li><strong>Pomade (Kilap):</strong> Hasilnya rapi, basah, klimis. Cocok buat gaya klasik. <strong>JANGAN PAKE</strong> kalau rambut lo tipis/botak, bakal kelihatan lepes dan kulit kepala lo nembus.</li>
+                <li><strong>Clay / Wax (Matte):</strong> Hasilnya kering, gak kilap, natural. Cocok buat jambul atau rambut acak. Bikin rambut kelihatan tebel.</li>
+                <li><strong>Styling Powder (Bubuk):</strong> Ini <em>cheat code</em> buat rambut tipis/lemas. Tabur di akar, rambut langsung ngembang instan. Wajib buat gaya <em>French Crop</em>.</li>
+            </ul>
+            <div class="page-number">14</div>
+            <div class="footer-logo">THE ARCHITECT</div>
+        </div>
+
+        <!-- ================= PAGE 15: BONUS ================= -->
+        <div class="page bg-white content-padding">
+            <h1 class="chapter-title">BONUS: THE DETAILS</h1>
+            
+            <h3 class="sub-title">Alis (Bingkai Mata)</h3>
+            
+            <!-- VISUAL: EYEBROW GUIDE -->
+            <img 
+                src="assets/v1-eyebrow.jpg" 
+                onerror="this.onerror=null; this.src='https://placehold.co/800x250/f1f5f9/334155?text=FILE+NEEDED:+assets/v1-eyebrow.jpg';"
+                alt="Eyebrow Grooming Guide" 
+                class="technical-img my-4"
+            >
+
+            <p>Mata "Hunter Eyes" itu alisnya rendah, lurus, dan naik dikit di ujung luar (<em>Positive Tilt</em>).</p>
+            <ul class="list-disc space-y-2 mb-8">
+                <li><strong>JANGAN PERNAH</strong> cukur habis alis lo atau dibikin tipis. Muka lo bakal aneh dan feminin.</li>
+                <li><strong>Rapikan:</strong> Cukup cabut bulu halus yang nyambung di tengah (unibrow) sama bulu liar yang jauh dari jalur utama.</li>
+                <li><strong>Trik Sikat:</strong> Pake sikat gigi bekas. Sikat alis lo ke arah <strong>ATAS dan LUAR</strong>. Ini bikin alis kelihatan tebel, penuh, dan tatapan lo jadi tajem.</li>
+            </ul>
+
+            <h3 class="sub-title">Jenggot (Kontur Alami)</h3>
+            <p>Jenggot itu makeup cowok buat manipulasi bentuk rahang.</p>
+            
+            <!-- VISUAL: BEARD NECKLINE -->
+            <img 
+                src="assets/v1-beard.jpg" 
+                onerror="this.onerror=null; this.src='https://placehold.co/800x250/f1f5f9/334155?text=FILE+NEEDED:+assets/v1-beard.jpg';"
+                alt="Correct Beard Neckline" 
+                class="technical-img my-4"
+            >
+
+            <ul class="list-disc space-y-4">
+                <li><strong>Rahang Lemah/Mundur?</strong> Panjangin jenggot (<em>Full Beard</em>). Pas cukur leher (<em>Neckline</em>), cukur sekitar <strong>2 jari di atas jakun</strong>. <em>Kesalahan Fatal:</em> Cukur pas di garis tulang rahang. Itu malah bikin lipatan leher (<em>double chin</em>) lo nonjol pas mangap. Garis leher yang agak bawah bikin ilusi rahang lo tajem.</li>
+                <li><strong>Pipi Tembem?</strong> Pake gaya <em>Goatee</em> (jenggot dagu doang) atau <em>Anchor</em>. Cukur bersih pipi. Garis vertikal di dagu bikin muka lo kelihatan lebih panjang dan tirus.</li>
+                <li><strong>Jenggot Bolong-bolong?</strong> Kalau tumbuh gak rata, mending cukur bersih (<em>Clean Shaven</em>) atau sisain tipis banget (<em>Stubble</em>). Jenggot panjang tapi bolong itu kelihatan kotor/gembel, bukan maskulin.</li>
+            </ul>
+            <div class="page-number">15</div>
+            <div class="footer-logo">THE ARCHITECT</div>
+        </div>
+
+        <!-- ================= PAGE 16: ACTION PLAN ================= -->
+        <div class="page bg-white content-padding">
+             <h1 class="chapter-title text-cyan-700">ACTION PLAN:<br>MINGGU PERTAMA</h1>
+             
+             <!-- VISUAL: ACTION HEADER -->
+             <img 
+                 src="assets/v1-action.jpg" 
+                 onerror="this.onerror=null; this.src='https://placehold.co/800x150/ecfeff/06b6d4?text=FILE+NEEDED:+assets/v1-action.jpg';"
+                 alt="Weekly Progress Tracker Header" 
+                 class="technical-img mb-8 border-none"
+             >
+
+             <div class="space-y-6 mt-8">
+                 <div class="flex items-start gap-4">
+                     <div class="bg-slate-900 text-white font-bold p-3 w-16 text-center rounded flex-shrink-0">HARI 1</div>
+                     <div class="p-4 bg-slate-50 border border-slate-200 flex-grow rounded">
+                         <p class="font-bold text-slate-900 mb-1">CEK KULIT</p>
+                         <p class="text-sm m-0">Lakuin <em>Tissue Test</em> buat tau jenis kulit. Beli Basic Trinity (Sabun Low pH, Pelembab, Sunscreen).</p>
+                     </div>
+                 </div>
+
+                 <div class="flex items-start gap-4">
+                     <div class="bg-slate-900 text-white font-bold p-3 w-16 text-center rounded flex-shrink-0">HARI 2</div>
+                     <div class="p-4 bg-slate-50 border border-slate-200 flex-grow rounded">
+                         <p class="font-bold text-slate-900 mb-1">RAMBUT BARU</p>
+                         <p class="text-sm m-0">Pergi ke Barber terbaik di kota lo. Tunjukin panduan bentuk wajah di atas. Minta potong sesuai geometri wajah.</p>
+                     </div>
+                 </div>
+
+                 <div class="flex items-start gap-4">
+                     <div class="bg-slate-900 text-white font-bold p-3 w-16 text-center rounded flex-shrink-0">HARI 3</div>
+                     <div class="p-4 bg-slate-50 border border-slate-200 flex-grow rounded">
+                         <p class="font-bold text-slate-900 mb-1">MULAI NGUNYAH</p>
+                         <p class="text-sm m-0">Beli permen karet. Mulai latihan <em>Chewing</em> 20 menit pas kerja.</p>
+                     </div>
+                 </div>
+
+                 <div class="flex items-start gap-4">
+                     <div class="bg-cyan-600 text-white font-bold p-3 w-16 text-center rounded flex-shrink-0">24/7</div>
+                     <div class="p-4 bg-cyan-50 border border-cyan-200 flex-grow rounded">
+                         <p class="font-bold text-slate-900 mb-1">MEWING</p>
+                         <p class="text-sm m-0">Tempel pengingat "Lidah Naik!" di monitor kerja. Latih <em>Suction Hold</em> setiap saat.</p>
+                     </div>
+                 </div>
+             </div>
+
+             <div class="mt-12 text-center border-t border-slate-200 pt-8">
+                 <p class="text-xl md:text-2xl font-bold font-oswald text-slate-900">END OF VOLUME 1</p>
+                 <p class="text-slate-500 text-sm">Siap-siap. Di Volume 2, kita bakal ancurin lemak dan bangun otot V-Shape.</p>
+             </div>
+             <div class="page-number">16</div>
+             <div class="footer-logo">THE ARCHITECT</div>
+        </div>
+
+    </div>
+</body>
+</html>
